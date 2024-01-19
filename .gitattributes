@@ -4,3 +4,5 @@ Content/Assets/KPOP_RYU/Mesh/SK_RYU_AllPartsTogether_bak.uasset filter=lfs diff=
 Content/Assets/KPOP_RYU/Textures/T_RYU_CASUAL_CLOTHES_Normal.uasset filter=lfs diff=lfs merge=lfs -text
 Content/Assets/KPOP_RYU/Textures/T_RYU_HEAD_Normal.uasset filter=lfs diff=lfs merge=lfs -text
 Content/Assets/KPOP_RYU/Textures/T_RYU_PERF_CLOTHES_Normal.uasset filter=lfs diff=lfs merge=lfs -text
+Content/Assets/Characters/YI_ModularZombies/Animation/MocapOnline/UE5/Root_Motion/UE5_Zombie_Crawl_Idle_2_Loop.uasset filter=lfs diff=lfs merge=lfs -text
+Content/Assets/Characters/YI_ModularZombies/Animation/MocapOnline/UE5/In_Place/UE5_Zombie_Crawl_Idle_2_Loop_IPC.uasset filter=lfs diff=lfs merge=lfs -text
