@@ -23,6 +23,7 @@ public:
 	ACorpsePartyGameMode();
 	virtual void Tick(float DeltaTime) override;
 	virtual void PlayerEliminated(class ACorpsePartyCharacter* ElimmedCharacter, class ACorpsePartyPlayerController* VictimController, ACorpsePartyPlayerController* AttackerController);
+	virtual void EnemyEliminated(class AEnemyCharacter* ElimmedCharacter, class ACorpsePartyPlayerController* VictimController, ACorpsePartyPlayerController* AttackerController);
 	virtual void RequestRespawn(ACharacter* ElimmedCharacter, AController* ElimmedController);
 
 	void PlayerLeftGame(class ACorpsePartyPlayerState* PlayerLeaving);

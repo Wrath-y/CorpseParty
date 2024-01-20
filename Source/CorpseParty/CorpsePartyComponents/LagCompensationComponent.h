@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "CorpseParty/Character/EnemyCharacter.h"
 #include "LagCompensationComponent.generated.h"
 
 USTRUCT(BlueprintType)
@@ -69,6 +70,7 @@ class CORPSEPARTY_API ULagCompensationComponent : public UActorComponent
 public:	
 	ULagCompensationComponent();
 	friend class ACorpsePartyCharacter;
+	friend class AEnemyCharacter;
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	void ShowFramePackage(const FFramePackage& Package, const FColor& Color);
 
@@ -169,6 +171,9 @@ private:
 
 	UPROPERTY()
 	ACorpsePartyCharacter* Character;
+
+	UPROPERTY()
+	AEnemyCharacter* EnemyCharacter;
 
 	UPROPERTY()
 	class ACorpsePartyPlayerController* Controller;
