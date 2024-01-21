@@ -19,6 +19,7 @@
 #include "Sound/SoundCue.h"
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
+#include "AI/NavigationSystemBase.h"
 #include "CorpseParty/CorpsePartyComponents/EnemyBuffComponent.h"
 #include "CorpseParty/CorpsePartyComponents/EnemyCombatComponent.h"
 #include "GameFramework/NavMovementComponent.h"
@@ -319,6 +320,7 @@ void AEnemyCharacter::PlayHitReactMontage()
 void AEnemyCharacter::ReceiveDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType,
 	AController* InstigatorController, AActor* DamageCauser)
 {
+	UE_LOG(LogTemp, Warning, TEXT("ReceiveDamage"));
 	CorpsePartyGameMode = CorpsePartyGameMode == nullptr ? GetWorld()->GetAuthGameMode<ACorpsePartyGameMode>() : CorpsePartyGameMode;
 	if (bElimmed || CorpsePartyGameMode == nullptr) return;
 	Damage = CorpsePartyGameMode->CalculateDamage(InstigatorController, Controller, Damage);
