@@ -6,3 +6,11 @@ Content/Assets/KPOP_RYU/Textures/T_RYU_HEAD_Normal.uasset filter=lfs diff=lfs me
 Content/Assets/KPOP_RYU/Textures/T_RYU_PERF_CLOTHES_Normal.uasset filter=lfs diff=lfs merge=lfs -text
 Content/Assets/Characters/YI_ModularZombies/Animation/MocapOnline/UE5/Root_Motion/UE5_Zombie_Crawl_Idle_2_Loop.uasset filter=lfs diff=lfs merge=lfs -text
 Content/Assets/Characters/YI_ModularZombies/Animation/MocapOnline/UE5/In_Place/UE5_Zombie_Crawl_Idle_2_Loop_IPC.uasset filter=lfs diff=lfs merge=lfs -text
+Content/Assets/Enviroment/RealisticForestPack/FoliagePackV1/Meshes/Roads/Asphalt/Textures/T_Road_2_N.uasset filter=lfs diff=lfs merge=lfs -text
+Content/Assets/Enviroment/RealisticForestPack/FoliagePackV1/Meshes/Roads/Asphalt/Textures/T_Road_3_N.uasset filter=lfs diff=lfs merge=lfs -text
+Content/Assets/Enviroment/RealisticForestPack/FoliagePackV1/Meshes/Roads/Asphalt/Textures/T_Road_4_N.uasset filter=lfs diff=lfs merge=lfs -text
+Content/Assets/Enviroment/RealisticForestPack/FoliagePackV1/Meshes/Roads/Asphalt/Textures/T_Road_5_N.uasset filter=lfs diff=lfs merge=lfs -text
+Content/Assets/Enviroment/RealisticForestPack/FoliagePackV1/Meshes/Roads/Asphalt/Textures/T_Road_1_N.uasset filter=lfs diff=lfs merge=lfs -text
+Content/Assets/Enviroment/RealisticForestPack/FoliagePackV1/Meshes/Roads/Asphalt/Textures/T_Road_1_N_Smooth.uasset filter=lfs diff=lfs merge=lfs -text
+Content/Assets/Enviroment/RealisticForestPack/FoliagePackV1/Meshes/Roads/Asphalt/Textures/T_Road_1_Thin_N.uasset filter=lfs diff=lfs merge=lfs -text
+Content/Assets/Enviroment/RealisticForestPack/FoliagePackV1/Meshes/Roads/Asphalt/Textures/T_Road_2_2_N.uasset filter=lfs diff=lfs merge=lfs -text
