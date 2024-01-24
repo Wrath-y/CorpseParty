@@ -25,6 +25,7 @@ enum class EFireType : uint8
 	EFT_HitScan UMETA(DisplayName = "Hit Scan Weapon"),
 	EFT_Projectile UMETA(DisplayName = "Projectile Weapon"),
 	EFT_Shotgun UMETA(DisplayName = "Shotgun Weapon"),
+	EFT_Unarmed UMETA(DisplayName = "Unarmed Weapon"),
 
 	EFT_MAX UMETA(DisplayName = "DefaultMAX")
 };
@@ -142,10 +143,16 @@ protected:
 	UPROPERTY(Replicated, EditAnywhere)
 	bool bUseServerSideRewind = false;
 
+	/**
+	 * Owner
+	 */
 	UPROPERTY()
 	class ACorpsePartyCharacter* CorpsePartyOwnerCharacter;
 	UPROPERTY()
 	class ACorpsePartyPlayerController* CorpsePartyOwnerController;
+
+	UPROPERTY()
+	class AEnemyCharacter* EnemyOwnerCharacter;
 
 	UFUNCTION()
 	void OnPingTooHigh(bool bPingTooHigh);

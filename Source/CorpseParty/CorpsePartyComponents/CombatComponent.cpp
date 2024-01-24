@@ -126,6 +126,9 @@ void UCombatComponent::Fire()
 			case EFireType::EFT_Shotgun:
 				FireShotgun();
 				break;
+			case EFireType::EFT_Unarmed:
+				FireUnarmed();
+				break;
 			}
 		}
 		StartFireTimer();
@@ -145,6 +148,16 @@ void UCombatComponent::FireProjectileWeapon()
 void UCombatComponent::FireHitScanWeapon()
 {
 	if (EquippedWeapon && Character)
+	{
+		HitTarget = EquippedWeapon->bUseScatter ? EquippedWeapon->TraceEndWithScatter(HitTarget) : HitTarget;
+		if (!Character->HasAuthority()) LocalFire(HitTarget);
+		ServerFire(HitTarget, EquippedWeapon->FireDelay);
+	}
+}
+
+void UCombatComponent::FireUnarmed()
+{
+	if (Character)
 	{
 		HitTarget = EquippedWeapon->bUseScatter ? EquippedWeapon->TraceEndWithScatter(HitTarget) : HitTarget;
 		if (!Character->HasAuthority()) LocalFire(HitTarget);

@@ -110,6 +110,8 @@ void AWeapon::SetHUDAmmo()
 
 void AWeapon::SpendRound()
 {
+	if (FireType == EFireType::EFT_Unarmed) return;
+	
 	Ammo = FMath::Clamp(Ammo - 1, 0, MagCapacity);
 	SetHUDAmmo();
 	if (HasAuthority())
