@@ -64,6 +64,10 @@
 		{
 			"Name": "PCGGeometryScriptInterop",
 			"Enabled": true
+		},
+		{
+			"Name": "ModelingToolsEditorMode",
+			"Enabled": true
 		}
 	]
 }
