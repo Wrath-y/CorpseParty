@@ -45,7 +45,7 @@ public:
 	virtual void Fire(const FVector& HitTarget);
 	virtual void Dropped();
 	void AddAmmo(int32 AmmoToAdd);
-	FVector TraceEndWithScatter(const FVector& HitTarget);
+	virtual FVector TraceEndWithScatter(const FVector& HitTarget);
 	
 	/**
 	* 十字准星
@@ -150,7 +150,6 @@ protected:
 	class ACorpsePartyCharacter* CorpsePartyOwnerCharacter;
 	UPROPERTY()
 	class ACorpsePartyPlayerController* CorpsePartyOwnerController;
-
 	UPROPERTY()
 	class AEnemyCharacter* EnemyOwnerCharacter;
 

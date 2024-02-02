@@ -15,6 +15,7 @@ class CORPSEPARTY_API AUnarmedWeapon : public AWeapon
 	GENERATED_BODY()
 public:
 	virtual void Fire(const FVector& HitTarget) override;
+	virtual FVector TraceEndWithScatter(const FVector& HitTarget) override;
 	
 protected:
 	virtual void BeginPlay() override;

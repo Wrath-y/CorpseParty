@@ -8,10 +8,8 @@
 #include "particles/ParticleSystemComponent.h"
 #include "Sound/SoundCue.h"
 #include "DrawDebugHelpers.h"
-#include "Components/BoxComponent.h"
-#include "CorpseParty/CorpseParty.h"
 #include "CorpseParty/Character/EnemyCharacter.h"
-#include "CorpseParty/PlayerController/CorpsePartyPlayerController.h"
+#include "Kismet/KismetMathLibrary.h"
 
 void AUnarmedWeapon::Fire(const FVector& HitTarget)
 {
@@ -114,4 +112,30 @@ void AUnarmedWeapon::WeaponTraceHit(const FVector& TraceStart, const FVector& Hi
 		
 		DrawDebugLine(GetWorld(), TraceStart, End, FColor::Green, false, -1);
 	}
+}
+
+FVector AUnarmedWeapon::TraceEndWithScatter(const FVector& HitTarget)
+{
+	const USkeletalMeshSocket* MuzzleFlashSocket = GetWeaponMesh()->GetSocketByName("MuzzleFlash");
+	if (MuzzleFlashSocket == nullptr) return FVector();
+
+	const FTransform SocketTransform = MuzzleFlashSocket->GetSocketTransform(GetWeaponMesh());
+	const FVector TraceStart = SocketTransform.GetLocation();
+
+	const FVector ToTargetNormalized = (HitTarget - TraceStart).GetSafeNormal();
+	const FVector SphereCenter = TraceStart + ToTargetNormalized * DistanceToSphere;
+	const FVector RandVec = UKismetMathLibrary::RandomUnitVector() * FMath::FRandRange(0.f, SphereRadius);
+	const FVector EndLoc = SphereCenter + RandVec;
+	const FVector ToEndLoc = EndLoc - TraceStart;
+
+	DrawDebugSphere(GetWorld(), SphereCenter, SphereRadius, 12, FColor::Red, true);
+	DrawDebugSphere(GetWorld(), EndLoc, 4.f, 12, FColor::Orange, true);
+	DrawDebugLine(
+		GetWorld(),
+		TraceStart,
+		FVector(TraceStart + ToEndLoc * TRACE_LENGTH / ToEndLoc.Size()),
+		FColor::Cyan,
+		true);
+
+	return FVector(TraceStart + ToEndLoc * TRACE_LENGTH / ToEndLoc.Size());
 }
