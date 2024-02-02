@@ -3,17 +3,15 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "CorpseParty/CorpsePartyTypes/TurningInPlace.h"
+#include "BaseCharacter.h"
 #include "CorpseParty/CorpsePartyTypes/CombatState.h"
-#include "GameFramework/Character.h"
 #include "Components/TimelineComponent.h"
-#include "CorpseParty/CorpsePartyTypes/Team.h"
 #include "EnemyCharacter.generated.h"
 
 class UTimelineComponent;
 
 UCLASS()
-class CORPSEPARTY_API AEnemyCharacter : public ACharacter
+class CORPSEPARTY_API AEnemyCharacter : public ABaseCharacter
 {
 	GENERATED_BODY()
 
@@ -41,10 +39,6 @@ public:
 	void UpdateHUDHealth();
 	void UpdateHUDShield();
 	
-
-	UPROPERTY()
-	TMap<FName, class UBoxComponent*> HitCollisionBoxes;
-	
 protected:
 	virtual void BeginPlay() override;
 
@@ -52,58 +46,6 @@ protected:
 	
 	UFUNCTION()
 	void ReceiveDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, class AController* InstigatorController, AActor* DamageCauser);
-	
-	/** 
-	* Hit boxes used for server-side rewind
-	*/
-
-	UPROPERTY(EditAnywhere)
-	class UBoxComponent* head;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* pelvis;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* spine_02;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* spine_03;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* upperarm_l;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* upperarm_r;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* lowerarm_l;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* lowerarm_r;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* hand_l;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* hand_r;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* thigh_l;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* thigh_r;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* calf_l;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* calf_r;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* foot_l;
-
-	UPROPERTY(EditAnywhere)
-	UBoxComponent* foot_r;
 	
 private:
 
